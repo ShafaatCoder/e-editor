@@ -1,0 +1,68 @@
+<svg
+  width="400"
+  height="400"
+  viewBox="0 0 400 400"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <!-- Background -->
+  <rect width="400" height="400" fill="#0B0D12" />
+
+  <!-- Neon glow filter -->
+  <defs>
+    <filter id="neon" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="coloredBlur" />
+      <feMerge>
+        <feMergeNode in="coloredBlur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Static vibe rings -->
+  <circle
+    cx="200"
+    cy="180"
+    r="50"
+    stroke="#8B5CF6"
+    stroke-width="2"
+    fill="none"
+    opacity="0.6"
+  />
+  <circle
+    cx="200"
+    cy="180"
+    r="65"
+    stroke="#22D3EE"
+    stroke-width="2"
+    fill="none"
+    opacity="0.35"
+  />
+
+  <!-- Logo text -->
+  <g filter="url(#neon)">
+    <text
+      x="200"
+      y="205"
+      font-family="monospace"
+      font-weight="bold"
+      font-size="60"
+      fill="#8B5CF6"
+      text-anchor="middle"
+    >
+      {&lt;/&gt;}
+    </text>
+  </g>
+
+  <!-- Brand name -->
+  <text
+    x="200"
+    y="310"
+    font-family="ui-monospace, monospace"
+    font-size="22"
+    fill="#22D3EE"
+    text-anchor="middle"
+    letter-spacing="1"
+  >
+    online vibe editor
+  </text>
+</svg>
