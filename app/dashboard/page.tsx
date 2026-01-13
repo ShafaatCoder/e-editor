@@ -26,6 +26,7 @@ const Page = async () => {
             onDuplicateProject={()=>{}}/>
           )
         }
+        
       </div>
     </div>
   )
