@@ -27,16 +27,13 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+import { PlaygroundData } from "../types";
 
 // TemplateSelectionModal.tsx
 type TemplateSelectionModalProps = {
   isOpen: boolean;
   onClose: () => void;
-  onSubmit: (data: {
-    title: string;
-    template: "REACT" | "NEXTJS" | "EXPRESS" | "VUE" | "HONO" | "ANGULAR";
-    description?: string;
-  }) => void;
+  onSubmit: (data: PlaygroundData) => void | Promise<void>;
 };
 
 interface TemplateOption {

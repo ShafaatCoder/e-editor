@@ -19,4 +19,9 @@ export interface User {
     user: User
     Starmark: { isMarked: boolean }[]
   }
+  export type PlaygroundData ={
+     title?: string;
+      template?: "REACT" | "NEXTJS" | "EXPRESS" | "ANGULAR" | "VUE" | "HONO";
+      description?: string;
+  };
   
