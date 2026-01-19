@@ -9,9 +9,32 @@ import { useRouter } from "next/navigation";
 import { useState } from "react"
 import { toast } from "sonner";
 import TemplateSelectionModal from "./template-selecting-modal";
+import { createPlayground } from "../actions";
+import { set } from "date-fns";
+import { PlaygroundData } from "../types";
 
 const AddNewButton = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+const [selectedTemplate, setSelectedTemplate] =
+  useState<PlaygroundData | null>(null);
+const router = useRouter();
+const handleSubmit = async (data: PlaygroundData) => {
+  setSelectedTemplate(data);
+
+  if (!data.title || !data.template || !data.description) {
+    toast.error("Please fill in all required fields");
+    return;
+  }
+
+  const res = await createPlayground({
+    title: data.title,
+    template: data.template,
+    description: data.description,
+  });
+  toast.success("Playground created successfully!");
+  setIsModalOpen(false);
+  router.push(`/playground/${res?.id}`);
+};
 
   return (
     <>
@@ -50,7 +73,7 @@ const AddNewButton = () => {
       <TemplateSelectionModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        onSubmit={() => {}}
+        onSubmit={handleSubmit}
       />
       
 
